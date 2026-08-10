@@ -41,7 +41,7 @@ jobs:
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v4
         with:
-          path: dist/my-app
+          path: dist/my-app/browser
 
   deploy:
     environment:
