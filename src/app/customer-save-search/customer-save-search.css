@@ -1,0 +1,409 @@
+.customer-page {
+  min-height: 100vh;
+  background: #f7f7f7;
+  font-family: Arial, sans-serif;
+}
+
+
+/* =========================
+   HEADER
+   ========================= */
+
+.customer-header {
+  height: 64px;
+  background: #9b111e;
+  color: white;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 0 16px;
+
+  box-sizing: border-box;
+}
+
+.header-title h2 {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.back-button,
+.menu-button {
+  background: transparent;
+  border: none;
+  color: white;
+
+  font-size: 28px;
+
+  width: 40px;
+  height: 40px;
+
+  cursor: pointer;
+}
+
+.menu-button {
+  font-size: 26px;
+}
+
+
+/* =========================
+   CONTENT
+   ========================= */
+
+.customer-content {
+  padding: 16px;
+}
+
+
+/* =========================
+   CARD
+   ========================= */
+
+.card {
+  background: white;
+
+  border-radius: 12px;
+
+  padding: 18px;
+
+  margin-bottom: 16px;
+
+  box-shadow:
+    0 2px 8px rgba(0, 0, 0, 0.08);
+
+  box-sizing: border-box;
+}
+
+.card h3 {
+  margin: 0 0 20px 0;
+
+  color: #222;
+
+  font-size: 18px;
+}
+
+
+/* =========================
+   LABEL
+   ========================= */
+
+label {
+  display: block;
+
+  font-size: 14px;
+
+  font-weight: 600;
+
+  color: #333;
+
+  margin-bottom: 7px;
+}
+
+label span {
+  color: #e65100;
+}
+
+
+/* =========================
+   SEARCH
+   ========================= */
+
+.search-row {
+  display: flex;
+
+  width: 100%;
+}
+
+.search-row input {
+  flex: 1;
+
+  min-width: 0;
+
+  height: 48px;
+
+  border: 1px solid #ddd;
+
+  border-radius: 8px 0 0 8px;
+
+  padding: 0 12px;
+
+  font-size: 16px;
+
+  box-sizing: border-box;
+
+  outline: none;
+}
+
+.search-row input:focus {
+  border-color: #e65100;
+}
+
+.search-button {
+  width: 52px;
+
+  border: none;
+
+  background: #f4511e;
+
+  color: white;
+
+  border-radius: 0 8px 8px 0;
+
+  font-size: 20px;
+
+  cursor: pointer;
+}
+
+.search-button:disabled {
+  opacity: 0.6;
+}
+
+
+/* =========================
+   FORM
+   ========================= */
+
+.form-group {
+  margin-bottom: 18px;
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+
+  border: 1px solid #ddd;
+
+  border-radius: 8px;
+
+  padding: 12px;
+
+  font-size: 16px;
+
+  box-sizing: border-box;
+
+  outline: none;
+}
+
+.form-group input {
+  height: 48px;
+}
+
+.form-group textarea {
+  resize: vertical;
+  min-height: 90px;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  border-color: #e65100;
+}
+
+.form-group input[readonly],
+.form-group textarea[readonly] {
+  background: #fafafa;
+  color: #555;
+}
+
+
+/* =========================
+   CUSTOMER FOUND
+   ========================= */
+
+.customer-found-card {
+  background: #edf8ef;
+
+  border: 1px solid #b8dfbd;
+
+  border-radius: 10px;
+
+  padding: 14px;
+
+  margin-bottom: 16px;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 12px;
+
+  color: #28743a;
+}
+
+.success-icon {
+  width: 34px;
+  height: 34px;
+
+  border-radius: 50%;
+
+  background: #3aa655;
+
+  color: white;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  font-size: 20px;
+}
+
+.customer-found-card strong {
+  font-size: 15px;
+}
+
+.customer-found-card p {
+  margin: 4px 0 0;
+
+  font-size: 13px;
+}
+
+
+/* =========================
+   CUSTOMER INFO
+   ========================= */
+
+.customer-info {
+  background: #fff7f4;
+
+  border: 1px solid #ffd7c7;
+
+  border-radius: 10px;
+
+  margin-top: 10px;
+
+  padding: 12px;
+}
+
+.info-row {
+  display: flex;
+
+  justify-content: space-between;
+
+  align-items: center;
+
+  padding: 10px 0;
+
+  border-bottom: 1px solid #eee;
+
+  font-size: 13px;
+}
+
+.info-row:last-child {
+  border-bottom: none;
+}
+
+.info-row span:first-child {
+  color: #666;
+}
+
+.info-row strong {
+  color: #a51c30;
+
+  max-width: 60%;
+
+  text-align: right;
+
+  word-break: break-word;
+}
+
+
+/* =========================
+   ACTIVE BADGE
+   ========================= */
+
+.active-badge {
+  background: #dff5e3;
+
+  color: #25813a !important;
+
+  padding: 5px 10px;
+
+  border-radius: 20px;
+
+  font-size: 12px;
+
+  font-weight: 600;
+}
+
+
+/* =========================
+   SAVE BUTTON
+   ========================= */
+
+.save-button {
+  width: 100%;
+
+  height: 50px;
+
+  margin-top: 10px;
+
+  border: none;
+
+  border-radius: 8px;
+
+  background: #f4511e;
+
+  color: white;
+
+  font-size: 16px;
+
+  font-weight: 600;
+
+  cursor: pointer;
+}
+
+.save-button:active {
+  transform: scale(0.98);
+}
+
+.save-button:disabled {
+  opacity: 0.6;
+
+  cursor: not-allowed;
+}
+
+
+/* =========================
+   VALIDATION
+   ========================= */
+
+.validation-error {
+  color: #d32f2f;
+
+  font-size: 12px;
+
+  margin-top: 5px;
+}
+
+
+/* =========================
+   MESSAGES
+   ========================= */
+
+.message {
+  padding: 13px;
+
+  border-radius: 8px;
+
+  margin-bottom: 16px;
+
+  font-size: 14px;
+}
+
+.success-message {
+  background: #e8f5e9;
+
+  color: #2e7d32;
+
+  border: 1px solid #a5d6a7;
+}
+
+.error-message {
+  background: #ffebee;
+
+  color: #c62828;
+
+  border: 1px solid #ef9a9a;
+}

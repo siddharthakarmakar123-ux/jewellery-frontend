@@ -1,0 +1,123 @@
+<div class="login-page">
+
+    <!-- Brand -->
+    <div class="brand-section">
+
+        <div class="brand-icon">
+            💎
+        </div>
+
+        <h1>
+            Manasa Jewellery House
+        </h1>
+
+        <p>
+            Shyamnagar, North 24 Parganas
+        </p>
+
+    </div>
+
+
+    <!-- Login Card -->
+    <div class="login-card">
+
+        <h2>
+            Employee Login
+        </h2>
+
+        <p class="login-subtitle">
+            Sign in to continue
+        </p>
+
+
+        <form [formGroup]="loginForm" (ngSubmit)="login()">
+
+
+            <!-- Username -->
+            <div class="form-group">
+
+                <label>
+                    Username
+                </label>
+
+                <input type="text" formControlName="userName" placeholder="Enter username" autocomplete="username" />
+
+                <div class="validation-error" *ngIf="
+            loginForm.get('userName')?.touched &&
+            loginForm.get('userName')?.hasError('required')
+          ">
+
+                    Username is required.
+
+                </div>
+
+            </div>
+
+
+            <!-- Password -->
+            <div class="form-group">
+
+                <label>
+                    Password
+                </label>
+
+                <input type="password" formControlName="password" placeholder="Enter password"
+                    autocomplete="current-password" />
+
+                <div class="validation-error" *ngIf="
+            loginForm.get('password')?.touched &&
+            loginForm.get('password')?.hasError('required')
+          ">
+
+                    Password is required.
+
+                </div>
+
+            </div>
+
+
+            <!-- Error -->
+            <div class="error-message" *ngIf="errorMessage">
+
+                ⚠ {{ errorMessage }}
+
+            </div>
+
+
+            <!-- Success -->
+            <div class="success-message" *ngIf="successMessage">
+
+                ✓ {{ successMessage }}
+
+            </div>
+
+
+            <!-- Login -->
+            <button type="submit" class="login-button" [disabled]="isLoading">
+
+                {{ isLoading ? 'Signing in...' : 'Login' }}
+
+            </button>
+
+            <div class="signup-link">
+
+                Don't have an account?
+
+                <button type="button" (click)="goToSignup()">
+
+                    Sign Up
+
+                </button>
+
+            </div>
+
+        </form>
+
+
+        <div class="login-footer">
+            Employee access only
+        </div>
+
+    </div>
+
+</div>

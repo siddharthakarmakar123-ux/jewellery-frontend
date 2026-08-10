@@ -1,0 +1,226 @@
+<div class="signup-page">
+
+  <!-- Brand -->
+
+  <div class="brand-section">
+
+    <div class="brand-icon">
+      💎
+    </div>
+
+    <h1>
+      MANASA JEWELLERY HOUSE
+    </h1>
+
+    <p>
+      Shyamnagar, North 24 Parganas
+    </p>
+
+  </div>
+
+
+  <!-- Signup Card -->
+
+  <div class="signup-card">
+
+    <h2>
+      Employee Sign Up
+    </h2>
+
+    <p class="signup-subtitle">
+      Create your employee account
+    </p>
+
+
+    <form
+      [formGroup]="signupForm"
+      (ngSubmit)="signup()">
+
+
+      <!-- Full Name -->
+
+      <div class="form-group">
+
+        <label>
+          Full Name
+        </label>
+
+        <input
+          type="text"
+          formControlName="fullName"
+          placeholder="Enter full name"
+        />
+
+        <div
+          class="validation-error"
+          *ngIf="
+            signupForm.get('fullName')?.touched &&
+            signupForm.get('fullName')?.hasError('required')
+          ">
+
+          Full name is required.
+
+        </div>
+
+      </div>
+
+
+      <!-- Username -->
+
+      <div class="form-group">
+
+        <label>
+          Username
+        </label>
+
+        <input
+          type="text"
+          formControlName="userName"
+          placeholder="Enter username"
+          autocomplete="username"
+        />
+
+        <div
+          class="validation-error"
+          *ngIf="
+            signupForm.get('userName')?.touched &&
+            signupForm.get('userName')?.hasError('required')
+          ">
+
+          Username is required.
+
+        </div>
+
+      </div>
+
+
+      <!-- Password -->
+
+      <div class="form-group">
+
+        <label>
+          Password
+        </label>
+
+        <input
+          type="password"
+          formControlName="password"
+          placeholder="Enter password"
+          autocomplete="new-password"
+        />
+
+        <div
+          class="validation-error"
+          *ngIf="
+            signupForm.get('password')?.touched &&
+            signupForm.get('password')?.hasError('required')
+          ">
+
+          Password is required.
+
+        </div>
+
+        <div
+          class="validation-error"
+          *ngIf="
+            signupForm.get('password')?.touched &&
+            signupForm.get('password')?.hasError('minlength')
+          ">
+
+          Password must be at least 6 characters.
+
+        </div>
+
+      </div>
+
+
+      <!-- Confirm Password -->
+
+      <div class="form-group">
+
+        <label>
+          Confirm Password
+        </label>
+
+        <input
+          type="password"
+          formControlName="confirmPassword"
+          placeholder="Confirm password"
+          autocomplete="new-password"
+        />
+
+        <div
+          class="validation-error"
+          *ngIf="
+            signupForm.get('confirmPassword')?.touched &&
+            signupForm.get('confirmPassword')?.hasError('required')
+          ">
+
+          Please confirm your password.
+
+        </div>
+
+      </div>
+
+
+      <!-- Error -->
+
+      <div
+        class="error-message"
+        *ngIf="errorMessage">
+
+        ⚠ {{ errorMessage }}
+
+      </div>
+
+
+      <!-- Success -->
+
+      <div
+        class="success-message"
+        *ngIf="successMessage">
+
+        ✓ {{ successMessage }}
+
+      </div>
+
+
+      <!-- Signup -->
+
+      <button
+        type="submit"
+        class="signup-button"
+        [disabled]="isLoading">
+
+        {{
+          isLoading
+            ? 'Creating Account...'
+            : 'Create Account'
+        }}
+
+      </button>
+
+
+    </form>
+
+
+    <!-- Back to Login -->
+
+    <div class="login-link">
+
+      Already have an account?
+
+      <button
+        type="button"
+        (click)="goToLogin()">
+
+        Login
+
+      </button>
+
+    </div>
+
+
+  </div>
+
+</div>

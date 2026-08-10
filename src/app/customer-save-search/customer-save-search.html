@@ -1,0 +1,180 @@
+<div class="customer-page">
+
+    <!-- Header -->
+    <div class="customer-header">
+
+        <button class="back-button" type="button">
+            ←
+        </button>
+
+        <div class="header-title">
+            <h2>Customer</h2>
+        </div>
+
+        <button class="menu-button" type="button">
+            ⋮
+        </button>
+
+    </div>
+
+
+    <!-- Page Content -->
+    <div class="customer-content">
+
+        <!-- Search Card -->
+        <form [formGroup]="customerForm">
+            <div class="card">
+
+                <h3>Search Customer</h3>
+
+                <label>
+                    Mobile Number <span>*</span>
+                </label>
+
+                <div class="search-row">
+
+                    <input type="text" maxlength="10" formControlName="mobile" placeholder="Enter mobile number"
+                        inputmode="numeric" />
+
+                    <button type="button" class="search-button" (click)="searchCustomer()" [disabled]="isSearching">
+
+                        {{ isSearching ? '...' : '🔍' }}
+
+                    </button>
+
+                </div>
+
+                <!-- Mobile validation -->
+                <div class="validation-error" *ngIf="
+          customerForm.get('mobile')?.touched &&
+          customerForm.get('mobile')?.invalid
+        ">
+
+                    Please enter a valid mobile number.
+
+                </div>
+
+            </div>
+
+
+            <!-- Customer Found -->
+            <div class="customer-found-card" *ngIf="customerFound">
+
+                <div class="success-icon">
+                    ✓
+                </div>
+
+                <div>
+                    <strong>Customer Found</strong>
+
+                    <p>
+                        Customer already exists in the system.
+                    </p>
+                </div>
+
+            </div>
+
+
+            <!-- Customer Details -->
+            <div class="card" *ngIf="searchCompleted">
+
+                <h3>Customer Details</h3>
+
+
+                <!-- Full Name -->
+                <div class="form-group">
+
+                    <label>
+                        Full Name <span>*</span>
+                    </label>
+
+                    <input type="text" formControlName="fullName" placeholder="Enter full name"
+                        [readonly]="customerFound" />
+
+                    <div class="validation-error" *ngIf="
+            customerForm.get('fullName')?.touched &&
+            customerForm.get('fullName')?.invalid
+          ">
+
+                        Full name is required.
+
+                    </div>
+
+                </div>
+
+
+                <!-- Email -->
+                <div class="form-group">
+
+                    <label>Email</label>
+
+                    <input type="email" formControlName="email" placeholder="Enter email" [readonly]="customerFound" />
+
+                </div>
+
+
+                <!-- Address -->
+                <div class="form-group">
+
+                    <label>Address</label>
+
+                    <textarea formControlName="address" placeholder="Enter address" rows="3" [readonly]="customerFound">
+        </textarea>
+
+                </div>
+
+
+                <!-- Existing Customer Information -->
+                <div class="customer-info" *ngIf="customerFound">
+
+                    <div class="info-row">
+                        <span>Customer No.</span>
+                        <strong>{{ customerForm.get('customerNumber')?.value }}</strong>
+                    </div>
+
+                    <div class="info-row">
+                        <span>Customer ID</span>
+                        <strong>{{ customerForm.get('customerId')?.value }}</strong>
+                    </div>
+
+                    <div class="info-row">
+                        <span>Active Status</span>
+
+                        <span class="active-badge">
+                            Active
+                        </span>
+                    </div>
+
+                </div>
+
+
+                <!-- Save -->
+                <button *ngIf="!customerFound" type="button" class="save-button" (click)="saveCustomer()"
+                    [disabled]="isSaving">
+
+                    {{ isSaving ? 'Saving...' : 'Save Customer' }}
+
+                </button>
+
+            </div>
+
+
+            <!-- Success -->
+            <div class="message success-message" *ngIf="successMessage">
+
+                ✓ {{ successMessage }}
+
+            </div>
+
+
+            <!-- Error -->
+            <div class="message error-message" *ngIf="errorMessage">
+
+                ⚠ {{ errorMessage }}
+
+            </div>
+        </form>
+    </div>
+
+
+</div>
