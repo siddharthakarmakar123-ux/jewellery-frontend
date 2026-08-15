@@ -10,6 +10,7 @@ import {
 import { Network } from '../service/network';
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
+import { AuthService } from '../service/auth.service';
 @Component({
   selector: 'app-login',
   standalone: true,
@@ -30,7 +31,8 @@ export class LoginComponent {
     private fb: FormBuilder,
     private loginService: Network,
     private cdr: ChangeDetectorRef,
-    private router: Router
+    private router: Router,
+    private authService: AuthService
   ) {
 
     this.loginForm = this.fb.group({
@@ -85,6 +87,7 @@ export class LoginComponent {
             'Login successful';
 
           this.cdr.detectChanges();
+          this.authService.login(response);
           this.router.navigate([
             '/customer-save-search'
           ]);
