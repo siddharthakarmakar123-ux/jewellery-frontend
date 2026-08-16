@@ -7,6 +7,7 @@ import {
   ReactiveFormsModule
 } from '@angular/forms';
 import { Network } from '../service/network';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-customer-save-search',
@@ -29,7 +30,8 @@ errorMessage: string = '';
 
   constructor(private fb: FormBuilder,
     private customerService: Network,
-    private cdr: ChangeDetectorRef
+    private cdr: ChangeDetectorRef,
+    private router: Router
   ) {
 
     this.customerForm = this.fb.group({
@@ -55,7 +57,9 @@ errorMessage: string = '';
         ]
       ],
 
-      address: ['']
+      address: [''],
+      customerNumber: [''],
+      customerId: [''],
     });
   }
 
@@ -88,6 +92,11 @@ errorMessage: string = '';
 
     const customer = data[0];
 
+    console.log('Customer found:', customer);
+    console.log('Customer data:', JSON.stringify(customer));
+    console.log('Customer ID:', customer.customerId);
+    console.log('Customer Number:', customer.customerNumber);
+
     this.customerForm.patchValue({
 
       customerId: customer.customerId,
@@ -103,6 +112,7 @@ errorMessage: string = '';
       address: customer.address
 
     });
+    console.log('Customer form values after patch:', this.customerForm.value);
 
   } else {
 
@@ -184,5 +194,18 @@ errorMessage: string = '';
           this.cdr.detectChanges();
       }
     });
+}
+
+goToOrderDetails(): void {
+console.log('Navigating to order details with customer data:', this.customerForm.value);
+  this.router.navigate(
+    ['/order-details'],
+    {
+      state: {
+        customer: this.customerForm.value
+      }
+    }
+  );
+
 }
 }

@@ -112,6 +112,11 @@
                     {{ isSaving ? 'Saving...' : 'Save Customer' }}
 
                 </button>
+                <button *ngIf="customerFound" type="button" class="save-button" (click)="goToOrderDetails()">
+
+                    Order Details
+
+                </button>
 
             </div>
 

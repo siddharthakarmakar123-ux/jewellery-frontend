@@ -6,6 +6,7 @@ import { SignupComponent } from './signup/signup';
 import { AuthGuard } from './service/auth.guard';
 import { RateComponent } from './rate/rate';
 import { LayoutComponent } from './layout/layout';
+import { OrderDetails} from './order-details/order-details';
 
 export const routes: Routes = [
   {
@@ -26,11 +27,16 @@ export const routes: Routes = [
       {
         path: 'customer-save-search',
         component: CustomerSaveSearch
-      },
+      }, 
 
       {
         path: 'rates',
         component: RateComponent
+      },
+
+      {
+        path: 'order-details',
+        component: OrderDetails
       },
 
       {

@@ -1,0 +1,306 @@
+<div class="order-page">
+
+    <div
+  class="rate-warning-overlay"
+  *ngIf="showRateWarning">
+
+  <div class="rate-warning-box">
+
+    <div class="warning-icon">
+      ⚠
+    </div>
+
+    <h3>Rates Not Up to Date</h3>
+
+    <p>
+      The current Gold and Silver rates have not
+      been updated today.
+    </p>
+
+    <p class="last-updated">
+
+      Last updated on
+
+      <strong>
+        {{ rateLastUpdated | date:'dd-MMM-yyyy' }}
+      </strong>
+
+    </p>
+
+    <p class="proceed-question">
+      Are you sure you want to proceed?
+    </p>
+
+
+    <div class="warning-actions">
+
+      <button
+        type="button"
+        class="cancel-button"
+        (click)="showRateWarning = false">
+
+        Cancel
+
+      </button>
+
+      <button
+        type="button"
+        class="proceed-button"
+        (click)="performCalculation()">
+
+        Yes, Proceed
+
+      </button>
+
+    </div>
+
+  </div>
+
+</div>
+
+    <!-- Page Title -->
+    <div class="page-title">
+        <h2>Order Details</h2>
+        <p>Calculate jewellery rate</p>
+    </div>
+
+
+    <!-- Customer Details -->
+    <section class="customer-card" *ngIf="customer">
+
+        <div class="section-title">
+
+            <div class="section-icon">
+                👤
+            </div>
+
+            <div>
+                <h3>Customer Details</h3>
+                <p>Customer information</p>
+            </div>
+
+        </div>
+
+
+        <div class="customer-grid">
+
+            <div class="customer-item">
+                <span>Customer No.</span>
+                <strong>
+                    {{ customer.customerNumber }}
+                </strong>
+            </div>
+
+            <div class="customer-item">
+                <span>Customer Name</span>
+                <strong>
+                    {{ customer.fullName }}
+                </strong>
+            </div>
+
+            <div class="customer-item">
+                <span>Mobile</span>
+                <strong>
+                    {{ customer.mobile }}
+                </strong>
+            </div>
+
+            <div class="customer-item" *ngIf="customer.email">
+
+                <span>Email</span>
+                <strong>
+                    {{ customer.email }}
+                </strong>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- Rate Calculation -->
+    <section class="calculation-card">
+
+        <div class="section-title">
+
+            <div class="section-icon">
+                ⚖
+            </div>
+
+            <div>
+                <h3>Rate Calculation</h3>
+                <p>Enter jewellery details</p>
+            </div>
+
+        </div>
+
+
+        <form [formGroup]="orderForm" (ngSubmit)="calculateRate()">
+
+
+            <!-- Metal -->
+            <div class="form-group">
+
+                <label for="metalType">
+                    Metal Type
+                </label>
+
+                <select id="metalType" formControlName="metalType">
+
+                    <option value="gold">
+                        Gold
+                    </option>
+
+                    <option value="silver">
+                        Silver
+                    </option>
+
+                </select>
+
+            </div>
+
+
+            <!-- Weight -->
+            <div class="form-group">
+
+                <label for="weight">
+                    Weight <span>(grams)</span>
+                </label>
+
+                <div class="input-wrapper">
+
+                    <input id="weight" type="number" step="0.01" formControlName="weight" placeholder="Enter weight">
+
+                    <span>gm</span>
+
+                </div>
+
+                <div class="error" *ngIf="
+            orderForm.get('weight')?.touched &&
+            orderForm.get('weight')?.invalid
+          ">
+
+                    Please enter a valid weight.
+
+                </div>
+
+            </div>
+
+
+            <!-- Exchange Weight -->
+            <div class="form-group">
+
+                <label for="exchangeWeight">
+                    Exchange Weight
+                    <span>(if applicable)</span>
+                </label>
+
+                <div class="input-wrapper">
+
+                    <input id="exchangeWeight" type="number" step="0.01" formControlName="exchangeWeight"
+                        placeholder="Enter exchange weight">
+
+                    <span>gm</span>
+
+                </div>
+
+            </div>
+
+
+            <!-- Calculate Button -->
+            <button type="submit" class="calculate-button" [disabled]="ratesLoading">
+
+                <span *ngIf="!ratesLoading">
+                    Calculate Rate
+                </span>
+                <span *ngIf="ratesLoading">
+                    Loading Rates...
+                </span>
+
+            </button>
+
+        </form>
+
+    </section>
+
+
+    <!-- Result -->
+    <section class="result-card" *ngIf="calculated">
+
+        <div class="result-header">
+
+            <div>
+                <h3>Estimate</h3>
+                <p>Calculation summary</p>
+            </div>
+
+            <span class="metal-badge">
+                {{ orderForm.get('metalType')?.value | uppercase }}
+            </span>
+
+        </div>
+
+
+        <div class="result-details">
+
+            <div class="result-row">
+                <span>Gross Weight</span>
+
+                <strong>
+                    {{ orderForm.get('weight')?.value }} gm
+                </strong>
+            </div>
+
+
+            <div class="result-row">
+                <span>Exchange Weight</span>
+
+                <strong>
+                    {{ orderForm.get('exchangeWeight')?.value || 0 }} gm
+                </strong>
+            </div>
+
+
+            <div class="result-row">
+                <span>Net Weight</span>
+
+                <strong>
+                    {{ netWeight }} gm
+                </strong>
+            </div>
+
+
+            <div class="result-row">
+                <span>Rate per Gram</span>
+
+                <strong>
+                    ₹{{ metalRate }}
+                </strong>
+            </div>
+
+
+            <div class="result-row">
+                <span>Making Charge</span>
+
+                <strong>
+                    ₹{{ makingCharge }}/gm
+                </strong>
+            </div>
+
+        </div>
+
+
+        <div class="total-section">
+
+            <span>Total Amount</span>
+
+            <strong>
+                ₹{{ totalAmount | number:'1.2-2' }}
+            </strong>
+
+        </div>
+
+    </section>
+
+</div>
