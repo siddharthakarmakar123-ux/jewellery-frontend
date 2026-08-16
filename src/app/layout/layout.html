@@ -1,0 +1,75 @@
+<div class="app-layout">
+
+  <!-- ================= HEADER ================= -->
+
+  <header class="app-header">
+
+    <!-- Back Button -->
+    <button
+      class="header-button back-button"
+      type="button"
+      (click)="goBack()"
+      aria-label="Go Back">
+
+      &#8592;
+
+    </button>
+
+
+    <!-- Shop Branding -->
+
+    <div class="shop-brand">
+
+      <img
+        src="/images/shop-logo.png"
+        alt="Shop Logo"
+        class="shop-logo">
+
+      <span class="shop-name">
+        মনসা জুয়েলারী হাউস
+      </span>
+
+    </div>
+
+
+    <!-- Menu -->
+
+    <!-- <button
+      class="header-button menu-button"
+      type="button"
+      (click)="openMenu()"
+      aria-label="Menu">
+
+      &#8942;
+
+    </button> -->
+
+    <app-menu></app-menu>
+
+  </header>
+
+
+  <!-- ================= PAGE CONTENT ================= -->
+
+  <main class="page-content">
+
+    <router-outlet></router-outlet>
+
+  </main>
+
+
+  <!-- ================= FOOTER ================= -->
+
+  <footer class="app-footer">
+    <div class="version">
+      Version 1.0.0
+    </div>
+
+    <div class="developer">
+      Developed &amp; Maintained by
+      <strong>Siddhartha Karmakar</strong>
+    </div>
+
+  </footer>
+
+</div>

@@ -1,0 +1,125 @@
+.app-layout {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: #f5f5f5;
+}
+
+
+/* ================= HEADER ================= */
+
+.app-header {
+  height: 48px;
+
+  display: flex;
+  align-items: center;
+
+  background: #ffffff;
+
+  border-bottom: 1px solid #ddd;
+
+  position: relative;
+}
+
+
+/* Header Buttons */
+
+.header-button {
+  width: 45px;
+  height: 48px;
+
+  border: none;
+  background: transparent;
+
+  font-size: 25px;
+
+  color: #333;
+
+  cursor: pointer;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.header-button:hover {
+  background: #f5f5f5;
+}
+
+
+/* Shop Branding */
+
+.shop-brand {
+  display: flex;
+  align-items: center;
+
+  flex: 1;
+
+  padding-left: 5px;
+}
+
+
+.shop-logo {
+  width: 50px;
+  height: 50px;
+
+  object-fit: contain;
+
+  margin-right: 6px;
+}
+
+
+.shop-name {
+  font-size: 14px;
+
+  font-weight: 700;
+
+  color: #b00020;
+
+  white-space: nowrap;
+}
+
+
+/* ================= CONTENT ================= */
+
+.page-content {
+  flex: 1;
+
+  width: 100%;
+
+  overflow-y: auto;
+}
+
+
+/* ================= FOOTER ================= */
+
+.app-footer {
+
+  background: #ffffff;
+
+  border-top: 1px solid #ddd;
+
+  padding: 8px 12px;
+
+  text-align: left;
+
+  font-size: 10px;
+
+  color: #777;
+
+  line-height: 1.5;
+}
+
+.version {
+  font-size: 10px;
+}
+
+
+.developer {
+  font-size: 10px;
+}
+
+
+.developer strong {
+  color: #444;
+}

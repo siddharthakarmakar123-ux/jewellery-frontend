@@ -1,0 +1,113 @@
+<div class="rate-container">
+
+  <div class="rate-card">
+
+    <h2>Metal Rate Management</h2>
+
+    <p class="subtitle">
+      Set the current Gold and Silver rates
+    </p>
+
+    <form
+      [formGroup]="rateForm"
+      (ngSubmit)="saveRates()"
+    >
+
+      <!-- Gold -->
+
+      <div class="form-group">
+
+        <label for="goldRate">
+          Gold Rate per Gram
+        </label>
+
+        <input
+          id="goldRate"
+          type="number"
+          formControlName="goldRatePerGram"
+          placeholder="Enter Gold Rate"
+        >
+
+        <div
+          class="error"
+          *ngIf="
+            rateForm.get('goldRatePerGram')?.touched &&
+            rateForm.get('goldRatePerGram')?.invalid
+          "
+        >
+          Please enter a valid Gold rate.
+        </div>
+
+      </div>
+
+
+      <!-- Silver -->
+
+      <div class="form-group">
+
+        <label for="silverRate">
+          Silver Rate per Gram
+        </label>
+
+        <input
+          id="silverRate"
+          type="number"
+          formControlName="silverRatePerGram"
+          placeholder="Enter Silver Rate"
+        >
+
+        <div
+          class="error"
+          *ngIf="
+            rateForm.get('silverRatePerGram')?.touched &&
+            rateForm.get('silverRatePerGram')?.invalid
+          "
+        >
+          Please enter a valid Silver rate.
+        </div>
+
+      </div>
+
+
+      <!-- Success -->
+
+      <div
+        class="success"
+        *ngIf="successMessage"
+      >
+        {{ successMessage }}
+      </div>
+
+
+      <!-- Error -->
+
+      <div
+        class="error"
+        *ngIf="errorMessage"
+      >
+        {{ errorMessage }}
+      </div>
+
+
+      <!-- Save -->
+
+      <button
+        type="submit"
+        [disabled]="saving || loading"
+      >
+
+        <span *ngIf="!saving">
+          Save Rates
+        </span>
+
+        <span *ngIf="saving">
+          Saving...
+        </span>
+
+      </button>
+
+    </form>
+
+  </div>
+
+</div>

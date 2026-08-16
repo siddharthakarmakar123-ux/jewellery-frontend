@@ -2,12 +2,10 @@
   min-height: 100vh;
 
   background:
-    linear-gradient(
-      180deg,
+    linear-gradient(180deg,
       #8b0000 0%,
       #a61b1b 38%,
-      #f7f7f7 38%
-    );
+      #f7f7f7 38%);
 
   padding: 30px 18px;
 
@@ -20,16 +18,6 @@
 /* =========================
    BRAND
    ========================= */
-
-.brand-section {
-  text-align: center;
-
-  color: white;
-
-  margin-top: 25px;
-
-  margin-bottom: 35px;
-}
 
 .brand-icon {
   width: 64px;
@@ -52,24 +40,16 @@
     0 4px 12px rgba(0, 0, 0, 0.2);
 }
 
-.brand-section h1 {
-  margin: 0;
-
-  font-size: 25px;
-
-  font-weight: 600;
-
-  text-transform: uppercase;
+.brand-section {
+  width: 111%;
+  height: 281px;
+  background-image: url(/images/shop-header.png);
+  background-size: cover;
+  background-position: left;
+  background-repeat: no-repeat;
+  margin-left: -18px;
+  margin-top: -30px;
 }
-
-.brand-section p {
-  margin: 8px 0 0;
-
-  font-size: 13px;
-
-  opacity: 0.9;
-}
-
 
 /* =========================
    LOGIN CARD
@@ -277,4 +257,47 @@
   cursor: pointer;
 
   font-size: 13px;
+}
+
+.login-header {
+  width: 100%;
+  height: 120px;
+  overflow: hidden;
+}
+
+.login-header img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+
+.app-footer {
+
+  background: #ffffff;
+
+  border-top: 1px solid #ddd;
+
+  padding: 8px 12px;
+
+  text-align: left;
+
+  font-size: 10px;
+
+  color: #777;
+
+  line-height: 1.5;
+}
+
+.version {
+  font-size: 10px;
+}
+
+.developer {
+  font-size: 10px;
+}
+
+.developer strong {
+  color: #444;
 }

@@ -79,4 +79,32 @@ authenticate(userName: string, password: string): Observable<any> {
       request
     );
   }
+  
+  getCurrentRates(): Observable<any> {
+
+    const request = {
+      req: {
+      }
+    };
+
+    return this.http.post<any>(
+      `${this.apiUrl}/rates/search`,
+      request
+    );
+  }
+
+  saveRates(rates: any): Observable<any> {
+
+  const request = {
+    req: {
+      goldRatePerGram: rates.goldRatePerGram,
+      silverRatePerGram: rates.silverRatePerGram
+    }
+  };
+
+  return this.http.post<any>(
+    `${this.apiUrl}/rates/save`,
+    request
+  );
+}
 }

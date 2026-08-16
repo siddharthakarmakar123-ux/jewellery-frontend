@@ -1,23 +1,5 @@
 <div class="customer-page">
 
-    <!-- Header -->
-    <div class="customer-header">
-
-        <button class="back-button" type="button">
-            ←
-        </button>
-
-        <div class="header-title">
-            <h2>Customer</h2>
-        </div>
-
-        <button class="menu-button" type="button">
-            ⋮
-        </button>
-
-    </div>
-
-
     <!-- Page Content -->
     <div class="customer-content">
 
@@ -122,31 +104,6 @@
         </textarea>
 
                 </div>
-
-
-                <!-- Existing Customer Information -->
-                <div class="customer-info" *ngIf="customerFound">
-
-                    <div class="info-row">
-                        <span>Customer No.</span>
-                        <strong>{{ customerForm.get('customerNumber')?.value }}</strong>
-                    </div>
-
-                    <div class="info-row">
-                        <span>Customer ID</span>
-                        <strong>{{ customerForm.get('customerId')?.value }}</strong>
-                    </div>
-
-                    <div class="info-row">
-                        <span>Active Status</span>
-
-                        <span class="active-badge">
-                            Active
-                        </span>
-                    </div>
-
-                </div>
-
 
                 <!-- Save -->
                 <button *ngIf="!customerFound" type="button" class="save-button" (click)="saveCustomer()"

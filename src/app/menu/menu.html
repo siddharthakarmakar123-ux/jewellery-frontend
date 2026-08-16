@@ -1,0 +1,61 @@
+<div class="menu-wrapper">
+
+  <!-- Menu Button -->
+  <button
+    class="menu-button"
+    type="button"
+    (click)="toggleMenu()"
+    aria-label="Open menu"
+  >
+    ⋮
+  </button>
+
+
+  <!-- Dropdown Menu -->
+  <div
+    class="menu-dropdown"
+    *ngIf="menuOpen"
+  >
+
+    <button
+      type="button"
+      (click)="navigate('/customer-save-search')"
+    >
+      <span class="menu-icon">👤</span>
+      Customer
+    </button>
+
+
+    <button
+      type="button"
+      (click)="navigate('/rates')"
+    >
+      <span class="menu-icon">💰</span>
+      Metal Rates
+    </button>
+
+
+    <button
+      type="button"
+      (click)="navigate('/orders')"
+    >
+      <span class="menu-icon">🧾</span>
+      Orders
+    </button>
+
+
+    <div class="menu-divider"></div>
+
+
+    <button
+      type="button"
+      class="logout"
+      (click)="logout()"
+    >
+      <span class="menu-icon">🚪</span>
+      Logout
+    </button>
+
+  </div>
+
+</div>

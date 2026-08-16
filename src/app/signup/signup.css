@@ -20,47 +20,15 @@
 /* Brand */
 
 .brand-section {
-  text-align: center;
-
-  color: white;
-
-  margin-top: 20px;
-
-  margin-bottom: 30px;
+  width: 111%;
+  height: 281px;
+  background-image: url(/images/shop-header.png);
+  background-size: cover;
+  background-position: left;
+  background-repeat: no-repeat;
+  margin-left: -18px;
+  margin-top: -30px;
 }
-
-.brand-icon {
-  width: 60px;
-  height: 60px;
-
-  margin: 0 auto 12px;
-
-  background: #f4511e;
-
-  border-radius: 50%;
-
-  display: flex;
-
-  align-items: center;
-  justify-content: center;
-
-  font-size: 28px;
-}
-
-.brand-section h1 {
-  margin: 0;
-
-  font-size: 23px;
-
-  font-weight: 600;
-}
-
-.brand-section p {
-  margin: 7px 0 0;
-
-  font-size: 13px;
-}
-
 
 /* Signup Card */
 
@@ -247,4 +215,33 @@
   cursor: pointer;
 
   font-size: 13px;
+}
+
+.app-footer {
+
+  background: #ffffff;
+
+  border-top: 1px solid #ddd;
+
+  padding: 8px 12px;
+
+  text-align: left;
+
+  font-size: 10px;
+
+  color: #777;
+
+  line-height: 1.5;
+}
+
+.version {
+  font-size: 10px;
+}
+
+.developer {
+  font-size: 10px;
+}
+
+.developer strong {
+  color: #444;
 }
