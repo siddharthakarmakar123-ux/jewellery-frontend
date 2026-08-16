@@ -38,6 +38,9 @@ jobs:
       - name: Build Angular application
         run: npx ng build --configuration production --base-href /jewellery-frontend/
 
+      - name: Copy index.html to 404.html
+        run: cp dist/my-app/browser/index.html dist/my-app/browser/404.html
+
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v4
         with:
