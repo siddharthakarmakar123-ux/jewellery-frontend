@@ -6,8 +6,8 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class Network {
-      private apiUrl = 'http://localhost:8080/api';
-     //private apiUrl ='https://jewellery-backend-production.up.railway.app/api';
+    // private apiUrl = 'http://localhost:8080/api';
+     private apiUrl ='https://jewellery-backend-production.up.railway.app/api';
 
   constructor(private http: HttpClient) {
   }
