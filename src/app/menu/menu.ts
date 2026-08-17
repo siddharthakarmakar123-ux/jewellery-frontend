@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
+import { AuthService } from '../service/auth.service';
 
 @Component({
   selector: 'app-menu',
@@ -16,9 +17,15 @@ export class MenuComponent {
   menuOpen = false;
 
   constructor(
-    private router: Router
+    private router: Router,
+    private auth: AuthService
   ) { }
 
+  // Computed on every access (not just once at construction),
+  // so it always reflects the current sessionStorage value.
+  get role(): string | null {
+    return this.auth.getRole(); 
+  }
 
   toggleMenu(): void {
 
@@ -39,10 +46,7 @@ export class MenuComponent {
   logout(): void {
 
     this.menuOpen = false;
-
-    // We will connect this to your AuthService
-    // when we finalize the logout flow.
-    sessionStorage.clear();
+    this.auth.logout();
     this.router.navigate(['/app-login']);
 
   }

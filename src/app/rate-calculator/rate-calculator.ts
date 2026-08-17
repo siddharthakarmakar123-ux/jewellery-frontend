@@ -7,8 +7,8 @@ import {
   Validators
 } from '@angular/forms';
 import { Network } from '../service/network';
-import { Router } from '@angular/router';
 import { AuthService } from '../service/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-order-details',
@@ -17,13 +17,10 @@ import { AuthService } from '../service/auth.service';
     CommonModule,
     ReactiveFormsModule
   ],
-  templateUrl: './order-details.html',
-  styleUrl: './order-details.css',
+  templateUrl: './rate-calculator.html',
+  styleUrl: './rate-calculator.css',
 })
-export class OrderDetails implements OnInit {
-
-  customer: any;
-
+export class RateCalculator implements OnInit {
   orderForm!: FormGroup;
 
   calculated = false;
@@ -45,16 +42,13 @@ export class OrderDetails implements OnInit {
     private auth: AuthService,
     private router: Router
   ) { }
+
   // Computed on every access (not just once at construction),
   // so it always reflects the current sessionStorage value.
   get role(): string | null {
     return this.auth.getRole();
   }
   ngOnInit(): void {
-
-    this.customer = history.state.customer;
-
-    console.log('Customer received:', this.customer);
 
     this.orderForm = this.fb.group({
 
@@ -255,3 +249,4 @@ export class OrderDetails implements OnInit {
 
   }
 }
+

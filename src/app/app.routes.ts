@@ -7,6 +7,7 @@ import { AuthGuard } from './service/auth.guard';
 import { RateComponent } from './rate/rate';
 import { LayoutComponent } from './layout/layout';
 import { OrderDetails} from './order-details/order-details';
+import { RateCalculator } from './rate-calculator/rate-calculator';
 
 export const routes: Routes = [
   {
@@ -37,6 +38,11 @@ export const routes: Routes = [
       {
         path: 'order-details',
         component: OrderDetails
+      },
+
+      {
+        path: 'rate-calculator',
+        component: RateCalculator
       },
 
       {

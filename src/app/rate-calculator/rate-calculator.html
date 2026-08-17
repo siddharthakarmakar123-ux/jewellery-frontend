@@ -68,64 +68,9 @@
 
     <!-- Page Title -->
     <div class="page-title">
-        <h2>Order Details</h2>
+        <h2>Rate Calculator</h2>
         <p>Calculate jewellery rate</p>
     </div>
-
-
-    <!-- Customer Details -->
-    <section class="customer-card" *ngIf="customer">
-
-        <div class="section-title">
-
-            <div class="section-icon">
-                👤
-            </div>
-
-            <div>
-                <h3>Customer Details</h3>
-                <p>Customer information</p>
-            </div>
-
-        </div>
-
-
-        <div class="customer-grid">
-
-            <div class="customer-item">
-                <span>Customer No.</span>
-                <strong>
-                    {{ customer.customerNumber }}
-                </strong>
-            </div>
-
-            <div class="customer-item">
-                <span>Customer Name</span>
-                <strong>
-                    {{ customer.fullName }}
-                </strong>
-            </div>
-
-            <div class="customer-item">
-                <span>Mobile</span>
-                <strong>
-                    {{ customer.mobile }}
-                </strong>
-            </div>
-
-            <div class="customer-item" *ngIf="customer.email">
-
-                <span>Email</span>
-                <strong>
-                    {{ customer.email }}
-                </strong>
-
-            </div>
-
-        </div>
-
-    </section>
-
 
     <!-- Rate Calculation -->
     <section class="calculation-card">
